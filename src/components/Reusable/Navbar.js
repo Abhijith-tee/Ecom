@@ -4,6 +4,24 @@ import logo from '../../images/logo.png';
 import {FaCartArrowDown} from 'react-icons/fa'
 
 export default class Navbar extends Component {
+
+  state = {
+    navbarState: false,
+    navbarClass: "collapse navbar-collapse"
+  }
+
+  myToggler = () => {
+    this.state.navbarState 
+    ? this.setState({
+      navbarState: false,
+      navbarClass: "collapse navbar-collapse"
+    }) 
+    : this.setState({
+      navbarState: true,
+      navbarClass: "collapse navbar-collapse show"
+    })
+  }
+
   render() {
     return (
       <nav className="navbar navbar-expand-sm bg-theme text-white">
@@ -13,10 +31,11 @@ export default class Navbar extends Component {
         <button
             className="navbar-toggler"
             type="button"
+            onClick={this.myToggler}
         >
             <span className="text-white">menu</span>
         </button>
-        <div className="collapse navbar-collapse show">
+        <div className={this.state.navbarClass}>
             <ul className="navbar-nav ml-auto mr-5">
                 <li className="nav-item">
                     <Link to="/" className="nav-link text-white">Home</Link>
