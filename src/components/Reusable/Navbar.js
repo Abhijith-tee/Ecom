@@ -7,7 +7,24 @@ export default class Navbar extends Component {
 
   state = {
     navbarState: false,
-    navbarClass: "collapse navbar-collapse"
+    navbarClass: "collapse navbar-collapse",
+    menus: [{
+      id: 1,
+      text: "Home",
+      url: '/',
+    }, {
+      id: 2,
+      text: "About",
+      url: '/about',
+    }, {
+      id: 3,
+      text: "Services",
+      url: '/services'
+    }, {
+      id: 4,
+      text: "Contact",
+      url: '/contact'
+    }]
   }
 
   myToggler = () => {
@@ -37,13 +54,15 @@ export default class Navbar extends Component {
         </button>
         <div className={this.state.navbarClass}>
             <ul className="navbar-nav ml-auto mr-5">
-                <li className="nav-item">
-                    <Link to="/" className="nav-link text-white">Home</Link>
+              {this.state.menus.map(menu => {
+                return(
+                  <li key={menu.id} className="nav-item">
+                    <Link to={menu.url} className="nav-link text-white">{menu.text}</Link>
                 </li>
-                <li className="nav-item">
-                    <Link to="/" className="nav-link text-white">About Us</Link>
-                </li>
-                <li className="nav-item">
+                )
+              })}
+
+                <li key className="nav-item">
                     <Link to="/" className="nav-link text-white">
                      <FaCartArrowDown className="cart-icon"/>
                     </Link>
