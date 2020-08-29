@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import HeroSection from '../components/Reusable/HeroSection';
 import Infoblock from "../components/Reusable/Infoblock";
+import DualInfoblock from '../components/Reusable/DualInfoblock';
 
 const IndexPage = ({data}) => (
   <Layout>
@@ -16,6 +17,7 @@ const IndexPage = ({data}) => (
       heroclass="hero-background"
     />
     <Infoblock heading="About Us" />
+    <DualInfoblock heading="Our team" />
   </Layout>
 )
 
